@@ -1,1 +1,75 @@
-# Project-Hero-Portfolio
+# Project Hero: 基于物理的战术 RPG 玩法原型 (Prototype)
+
+![Engine](https://img.shields.io/badge/引擎-Unity_2022-black?style=flat&logo=unity)
+![Status](https://img.shields.io/badge/阶段-核心玩法验证_(Greybox)-blue)
+![Role](https://img.shields.io/badge/开发者-系统设计练习-orange)
+
+> **项目简介**：
+> 这是一个用于学习和验证系统设计想法的**个人练习项目**。
+> 我尝试解决传统战棋游戏“缺乏物理反馈”的问题，探索将“动量 ($P=mv$)”和“非线性时间轴”结合的可能性。本项目目前处于**灰盒 (Greybox)** 阶段，仅包含核心逻辑验证，无正式美术资源。
+
+---
+
+## 📺 核心机制演示 (Gameplay Mechanics)
+
+*（注：以下演示均为灰盒测试画面，美术资源为占位符）*
+
+[![点击观看演示视频](https://img.youtube.com/vi/YOUR_VIDEO_ID_HERE/0.jpg)](你的视频链接)
+
+---
+
+## 🛠️ 我在这个项目中尝试了什么？
+
+作为一个系统策划方向的学生，我主要通过这个项目练习**如何将抽象的设计文档转化为可运行的代码逻辑**。
+
+### 1. 物理驱动的战斗逻辑 (Physics-Based Combat)
+**设计目标：** 除了 RPG 常见的“攻击力-防御力”减法公式，尝试让战斗结果由物理规则决定。
+* **实现逻辑：** 引入 `UnitVolume` (体积/质量) 和 `Velocity` (速度) 概念。伤害值动态取决于碰撞时的动量。
+* **学习成果：** 实现了基于物理的击退（Knockback）、撞墙伤害以及多单位间的动量传递。
+* **相关代码：** [`PhysicsEngine.cs`](PhysicsEngine.cs)
+
+### 2. 连续时间轴与“拼刀”机制 (Timeline & Interactions)
+**设计目标：** 探索回合制与实时动作游戏的中间地带。
+* **实现逻辑：** 放弃传统回合，使用基于 `Tick` (60Hz) 的连续时间流。设计了“交互窗口”机制，允许在敌方攻击的前摇阶段插入“格挡”或“闪避”指令。
+* **学习成果：** 练习了优先队列 (Priority Queue) 在技能排序中的应用，以及处理复杂的并发状态（如两个单位同时攻击时的仲裁逻辑）。
+* **相关代码：** [`BattleTimeline.cs`](BattleTimeline.cs), [`CombatArbiter.cs`](CombatArbiter.cs)
+
+### 3. 三角网格底层 (Triangular Grid)
+**设计目标：** 为了实现比六边形更精细的 12 方向移动和物理反射。
+* **实现逻辑：** 没有使用 Unity 自带的 Grid 组件，而是尝试手写了一套三角网格的坐标换算、邻居查找和 A* 寻路算法。
+* **相关代码：** [`TrianglePoint.cs`](TrianglePoint.cs), [`GridManager.cs`](GridManager.cs)
+
+### 4. 工具流尝试 (Tooling)
+**设计目标：** 体验“数据驱动”的开发流程。
+* **实现逻辑：** 使用AI编写了一个简单的编辑器工具 `LibraryGenerator`，用于在编辑模式下通过数学公式生成复杂的攻击范围（如扇形、环形），并保存为 ScriptableObject 资产。
+* **相关代码：** [`LibraryGenerator.cs`](LibraryGenerator.cs)
+
+---
+
+## ⚠️ 局限性与不足 (Limitations)
+
+由于个人能力和时间有限，本项目存在以下不足，这也是我未来希望在团队中学习提升的方向：
+* **美术表现：** 场景和角色均为极其简陋的几何体或 AI 生成的概念图，缺乏视觉表现力。
+* **代码健壮性：** 代码主要为了快速验证玩法逻辑（Rapid Prototyping），部分模块耦合度较高，缺乏完善的异常处理。
+* **AI 智能：** 目前的敌人 AI 仅使用基础的状态机 (FSM)，缺乏复杂的决策能力。
+
+---
+
+## ℹ️ 关于开发者与开发模式
+
+**林锘天 (Loren Lin)**
+* 本科在读 / 寻求系统策划或战斗策划实习机会
+* 个人定位：热爱钻研底层机制，具备一定技术落地能力的策划新人。
+
+**🤖 关于 AI 辅助开发的说明：**
+为了弥补我作为策划在编程上的短板，本项目采用了 **AI 辅助** 的开发模式：
+1.  **设计与架构**：所有的系统规则、数学公式、数据结构（如三角网格坐标系）均由我**独立设计**。
+2.  **代码实现**：大部分 C# 代码由我提供逻辑，通过 AI 生成初版，再由我进行**人工调试、修 Bug 和逻辑整合**。
+3.  这个过程让我深刻理解了“向 AI 提需求”与“验收代码”的重要性。
+
+---
+
+## 📬 联系方式
+
+* **Email:** [LorenLin1012@gmail.com]
+* **设计文档:** [Game_Design_Final.md]

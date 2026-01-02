@@ -20,7 +20,7 @@
 
 ## 🛠️ 我在这个项目中尝试了什么？
 
-作为一个系统策划方向的学生，我主要通过这个项目练习**如何将抽象的设计文档转化为可运行的代码逻辑**。
+作为一个系统策划方向的学生，我主要通过这个项目练习**如何将抽象的设计文档([Game_Design_Final.md](Game_Design_Final.md))转化为可运行的代码逻辑**。
 
 ### 1. 依托于物理概念的一套逻辑自洽的系统 (Self-consistent Logical System based on Physical Concepts)
 **设计目标：** 除了 RPG 常见的“攻击力-防御力”减法公式，尝试让战斗结果由物理规则决定。
@@ -72,7 +72,6 @@
 ## 📬 联系方式
 
 * **Email:** [LorenLin1012@gmail.com]
-* **设计文档:** [Game_Design_Final.md](Game_Design_Final.md)
 
 ---
 

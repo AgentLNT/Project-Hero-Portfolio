@@ -1,6 +1,6 @@
 # Project Hero: 基于物理的战术 RPG 玩法原型 (Prototype)
 
-![Engine](https://img.shields.io/badge/引擎-Unity_2022-black?style=flat&logo=unity)
+![Engine](https://img.shields.io/badge/引擎-Unity_6-black?style=flat&logo=unity)
 ![Status](https://img.shields.io/badge/阶段-核心玩法验证_(Greybox)-blue)
 ![Role](https://img.shields.io/badge/开发者-系统设计练习-orange)
 
@@ -22,7 +22,7 @@
 
 作为一个系统策划方向的学生，我主要通过这个项目练习**如何将抽象的设计文档转化为可运行的代码逻辑**。
 
-### 1. 物理驱动的战斗逻辑 (Physics-Based Combat)
+### 1. 依托于物理概念的一套逻辑自洽的系统 (Self-consistent Logical System based on Physical Concepts)
 **设计目标：** 除了 RPG 常见的“攻击力-防御力”减法公式，尝试让战斗结果由物理规则决定。
 * **实现逻辑：** 引入 `UnitVolume` (体积/质量) 和 `Velocity` (速度) 概念。伤害值动态取决于碰撞时的动量。
 * **学习成果：** 实现了基于物理的击退（Knockback）、撞墙伤害以及多单位间的动量传递。

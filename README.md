@@ -14,7 +14,7 @@
 
 *（注：以下演示均为灰盒测试画面，美术资源为占位符）*
 
-[![点击观看演示视频](https://img.youtube.com/vi/YOUR_VIDEO_ID_HERE/0.jpg)](你的视频链接)
+[点击观看演示视频](https://www.bilibili.com/video/BV1bMrPBZEpz/?share_source=copy_web&vd_source=7fe952ebc61674a2915e431d0d2d3ca6)
 
 ---
 
